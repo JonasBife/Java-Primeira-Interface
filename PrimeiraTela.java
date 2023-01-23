@@ -29,22 +29,150 @@ public class PrimeiraTela extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        TelaPanel = new javax.swing.JPanel();
+        LoginLabel = new javax.swing.JLabel();
+        SenhaLabel = new javax.swing.JLabel();
+        loginTextField = new javax.swing.JTextField();
+        SenhaTextField = new javax.swing.JTextField();
+        DigiteLoginSenhaLabel = new javax.swing.JLabel();
+        LogarButton = new javax.swing.JButton();
+        EsqueciSenhaButton = new javax.swing.JButton();
+        ErroLogarPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ErroLogarTextArea = new javax.swing.JTextArea();
+        ErroLogarLabel = new javax.swing.JLabel();
+        EnviarMsgButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        labelNome = new javax.swing.JLabel();
-        contentNome = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Nomelabel = new javax.swing.JLabel();
+        NomeText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        labelNome.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
-        labelNome.setText("Nome:");
+        TelaPanel.setBackground(new java.awt.Color(153, 255, 153));
+        TelaPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        LoginLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LoginLabel.setText("Login");
+
+        SenhaLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        SenhaLabel.setText("Senha");
+
+        loginTextField.setForeground(new java.awt.Color(204, 204, 204));
+        loginTextField.setText("<Digite seu login>");
+        loginTextField.setToolTipText("Digite seu login");
+        loginTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginTextFieldMouseClicked(evt);
+            }
+        });
+
+        SenhaTextField.setToolTipText("Digite sua senha");
+
+        DigiteLoginSenhaLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        DigiteLoginSenhaLabel.setText("Digite seu login e senha para entrar no sistema:");
+
+        LogarButton.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        LogarButton.setText("Logar");
+        LogarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogarButtonMouseClicked(evt);
+            }
+        });
+
+        EsqueciSenhaButton.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        EsqueciSenhaButton.setText("Esqueci minha senha");
+
+        ErroLogarPanel.setBackground(new java.awt.Color(204, 204, 204));
+        ErroLogarPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 153, 51)));
+
+        ErroLogarTextArea.setColumns(20);
+        ErroLogarTextArea.setRows(5);
+        jScrollPane1.setViewportView(ErroLogarTextArea);
+
+        ErroLogarLabel.setText("Digite aqui seu erro ao tentar logar:");
+
+        EnviarMsgButton.setText("Enviar mensagem");
+
+        javax.swing.GroupLayout ErroLogarPanelLayout = new javax.swing.GroupLayout(ErroLogarPanel);
+        ErroLogarPanel.setLayout(ErroLogarPanelLayout);
+        ErroLogarPanelLayout.setHorizontalGroup(
+            ErroLogarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ErroLogarPanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(ErroLogarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(EnviarMsgButton)
+                    .addGroup(ErroLogarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ErroLogarLabel)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        ErroLogarPanelLayout.setVerticalGroup(
+            ErroLogarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ErroLogarPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ErroLogarLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(EnviarMsgButton)
+                .addGap(15, 15, 15))
+        );
+
+        javax.swing.GroupLayout TelaPanelLayout = new javax.swing.GroupLayout(TelaPanel);
+        TelaPanel.setLayout(TelaPanelLayout);
+        TelaPanelLayout.setHorizontalGroup(
+            TelaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TelaPanelLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addGroup(TelaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TelaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(TelaPanelLayout.createSequentialGroup()
+                            .addComponent(LoginLabel)
+                            .addGap(18, 18, 18)
+                            .addComponent(loginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(TelaPanelLayout.createSequentialGroup()
+                            .addComponent(SenhaLabel)
+                            .addGap(18, 18, 18)
+                            .addComponent(SenhaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaPanelLayout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LogarButton)
+                            .addGap(32, 32, 32)
+                            .addComponent(EsqueciSenhaButton)
+                            .addGap(36, 36, 36)))
+                    .addComponent(DigiteLoginSenhaLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ErroLogarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        TelaPanelLayout.setVerticalGroup(
+            TelaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TelaPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(DigiteLoginSenhaLabel)
+                .addGap(18, 18, 18)
+                .addGroup(TelaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LoginLabel)
+                    .addComponent(loginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(TelaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SenhaLabel)
+                    .addComponent(SenhaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(TelaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LogarButton)
+                    .addComponent(EsqueciSenhaButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ErroLogarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Login", TelaPanel);
+
+        Nomelabel.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        Nomelabel.setText("Nome:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -52,9 +180,9 @@ public class PrimeiraTela extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(labelNome)
+                .addComponent(Nomelabel)
                 .addGap(30, 30, 30)
-                .addComponent(contentNome, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NomeText, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(170, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -62,86 +190,12 @@ public class PrimeiraTela extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(contentNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNome))
+                    .addComponent(NomeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Nomelabel))
                 .addContainerGap(320, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Criar Conta", jPanel2);
-
-        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Login");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Senha");
-
-        jTextField1.setToolTipText("Digite seu login");
-
-        jTextField2.setToolTipText("Digite sua senha");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setText("Digite seu login e senha para entrar no sistema:");
-
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jButton1.setText("Logar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jButton2.setText("Esqueci minha senha");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTextField2))))
-                .addContainerGap(83, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(32, 32, 32)
-                .addComponent(jButton2)
-                .addGap(135, 135, 135))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel3)
-                .addGap(67, 67, 67)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(114, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Login", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,9 +211,13 @@ public class PrimeiraTela extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void LogarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogarButtonMouseClicked
         JOptionPane.showMessageDialog(rootPane,"Seja bem vindo!");
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_LogarButtonMouseClicked
+
+    private void loginTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginTextFieldMouseClicked
+     loginTextField.setText("");
+    }//GEN-LAST:event_loginTextFieldMouseClicked
 
     /**
      * @param args the command line arguments
@@ -197,17 +255,22 @@ public class PrimeiraTela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField contentNome;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel DigiteLoginSenhaLabel;
+    private javax.swing.JButton EnviarMsgButton;
+    private javax.swing.JLabel ErroLogarLabel;
+    private javax.swing.JPanel ErroLogarPanel;
+    private javax.swing.JTextArea ErroLogarTextArea;
+    private javax.swing.JButton EsqueciSenhaButton;
+    private javax.swing.JButton LogarButton;
+    private javax.swing.JLabel LoginLabel;
+    private javax.swing.JTextField NomeText;
+    private javax.swing.JLabel Nomelabel;
+    private javax.swing.JLabel SenhaLabel;
+    private javax.swing.JTextField SenhaTextField;
+    private javax.swing.JPanel TelaPanel;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JLabel labelNome;
+    private javax.swing.JTextField loginTextField;
     // End of variables declaration//GEN-END:variables
 }
